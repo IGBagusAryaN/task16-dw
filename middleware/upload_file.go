@@ -32,7 +32,7 @@ func UploadFile(next echo.HandlerFunc) echo.HandlerFunc {
 		}
 
 		data := tempFile.Name()
-		filename := data[8:] // uploads/
+		filename := data[8:] 
 
 		c.Set("dataFile", filename)
 		return next(c)
