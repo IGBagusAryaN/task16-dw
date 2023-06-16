@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project detail</title>
+    <link rel="stylesheet" href="/public/css/style.css">
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+    crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+</head>
+<body style="background-color: #E2E6EA;">
+    <nav class="navbar navbar-expand-lg bg-light">
+        <div class="container">
+          <a class="navbar-brand" href="#">
+            <img src="../public/images/png/logo.png" width="40"/>
+          </a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarTogglerDemo02"
+            aria-control="navbarTogglerDemo02"
+            aria-expanded="false"
+            aria-label="Toggle Navigation"
+          >
+            <span class="navbar-toggler-icon"></span>  
+          </button>
+          <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+            <ul class="navbar-nav ms-4 me-auto mb-2 mb-lg-0">
+              <li class="nav-item text-center">
+                <a class="nav-link active" aria-current="page" href="/">Home</a>
+              </li>
+              <li class="nav-item text-center">
+                <a class="nav-link "aria-current="page" href="testimonial">Testimonial</a>
+              </li>
+            </ul>
+            <div class="text-center ms-4">
+              <a href="contact" class="btn bg-btn text-white px-3">Contact Me</a>
+            </div>
+          </div>
+        </div>
+      </nav>  
+
+      <section>
+        <div class="container mx-lg-5 px-lg-5">
+            <h2 class="text-center fw-bold my-5">{{.Project.NameProject}}</h2>
+            <div class="row justify-content-center">
+                <div class="col-lg-8 col-sm-12 mb-5">
+                    <img class="img-fluid border-none" src="/uploads/{{$.Project.Image}}" alt="" width="580" height="200" >
+                </div>            
+                <div class="col-lg-4 col-sm-12">
+                  
+                    <div class="row">
+                        <div class="col-lg-12 col-sm-6">
+                            <h3 class="fw-bold">Duration</h3>
+                            <div class="mb-4">
+                                <div>
+                                    <img src="../public/images/svg/calendar.svg" alt=""> {{.Project.FormatStartDate}} - {{.Project.FormatEndDate}}
+                                </div>
+                                <div>
+                                    <img src="../public/images/svg/time.svg" alt=""> {{.Project.Duration}}
+                                </div>
+                            </div>
+                        </div>                       
+                        <div class="col-lg-12 col-sm-6">
+                            <h3 class="fw-bold">Technologies</h3>
+                            <div class="row">
+                                {{if $.Project.Html}}
+                                <div class="col-6 mb-1">
+                                  <i class="fa-brands fa-html5 fa-xl"></i> <span>HTML</span>
+                                </div>
+                                {{end}}
+                                {{if $.Project.Css}}
+                                <div class="col-6 mb-1">
+                                  <i class="fa-brands fa-css3-alt fa-xl"></i>  <span>Bootstraps</span>
+                                </div>
+                                {{end}}
+                                {{if $.Project.ReactJs}}
+                                <div class="col-6">
+                                  <i class="fa-brands fa-react fa-xl "></i> <span>React JS</span>
+                                </div>
+                                {{end}}
+                                {{if $.Project.JavaScript}}
+                                <div class="col-6">
+                                  <i class="fa-brands fa-js fa-xl"></i> <span>JavaScript</span>
+                                </div>
+                                {{end}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-4 desc-project">
+                <h4 class="mb-4">"{{.Project.Description}}"</h4>
+            </div>
+        </div>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+</body>
+</html>

@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+    crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link rel="stylesheet" href="/public/css/style.css">
+</head>
+<body> 
+    <nav class="navbar navbar-expand-lg bg-light">
+        <div class="container">
+          <a class="navbar-brand" href="#">
+            <img src="public/images/png/logo.png" width="40"/>
+          </a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarToggler"
+            aria-control="navbarToggler"
+            aria-expanded="false"
+            aria-label="Toggle Navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarToggler">
+            <ul class="navbar-nav ms-4 me-auto mb-2 mb-lg-0">
+              <li class="nav-item text-center">
+                <a class="nav-link active" aria-current="page" href="/">Home</a>
+              </li>
+              <li class="nav-item text-center">
+                <a class="nav-link "aria-current="page" href="testimonial">Testimonial</a>
+              </li>
+            </ul>
+            <div class="text-center ms-4 d-flex justify-content-center nav-auth">
+              {{if .DataSession.IsLogin}}
+              <a href="#" style="text-decoration: none; color: black" class="mt-1"
+                >Hello, {{.DataSession.Name}}</a
+              >
+              <form id="myform" action="/logout" method="POST"></form>
+              <button
+                onclick="document.getElementById('myform').submit()"
+                class=" text-danger btn-logout mt-1 mx-3"
+              >
+                Logout
+              </button>
+              {{else}}
+              <div class="d-flex gap-2 mt-2 me-3">
+                <a href="/form-register" class="text-decoration-none btn-auth">Register</a>
+                <div>|</div>
+                <a href="/form-login" class="text-decoration-none btn-auth">Login</a>
+                {{end}}
+              </div>
+              <a href="contact" class="btn bg-btn text-white px-3">Contact Me</a>
+              
+            </div>
+          </div>
+        </div>
+      </nav>
+      
+  
+  
+      <section class="container mt-3 mb-5 py-4 px-5 rounded-4 card-profile">
+        <div class="row d-flex align-item-center justify-content-center">
+          <div class="desc col-lg-6 col-md-12 col-sm-12 p-0 d-flex flex-column justify-content-center align-item-center">
+            <h2 class="fw-bold">Hi, Welcome to my Portfolio</h2>
+            <p class="detail-desc mt-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus animi atque voluptas commodi fuga cum consectetur velit assumenda eum recusandae aliquam nisi debitis impedit, vitae iure quisquam placeat! Explicabo sint eligendi alias quos. Quaerat, qui porro, deleniti officiis omnis voluptates quae sit corrupti, nemo minima expedita! Suscipit architecto modi blanditiis dolorem aperiam animi, nesciunt voluptates magni! Saepe, consequatur suscipit nostrum a alias officiis animi, accusamus, ipsum placeat neque tenetur quibusdam!</p>
+            <div class="button-desc d-flex align-item-center mt-2 mb-3">  
+              <a href="contact" class="btn bg-btn text-white px-3 me-3">Contact</a>
+              <a href="" class="download text-decoration-none">Download CV <img class="download-img" src="./public/images/svg/download.svg" alt="" width="17"></a>
+            </div>
+            <div class="social mt-5">
+                <a href="https://www.linkedin.com/in/i-gede-bagus-arya-negara-2a7516274"><img src="./public/images/svg/linkedin.svg" alt=""></a>
+                <a href="https://www.facebook.com/bagusarya.bagusarya.961?mibextid=ZbWKwL"><img src="./public/images/svg/facebook.svg" alt=""></a>
+                <a href="https://www.instagram.com/bagusaryaa_/"><img src="./public/images/svg/instagram.svg" alt=""></a>
+                <a href="https://github.com/IGBagusAryaN"><img src="./public/images/svg/github.svg" alt=""></a>
+            </div>
+          </div>
+
+        <div class="card col-6 col-md-12 col-sm-12 rounded-4 p-0 mt-5 ms-sm-5" style="width: 19rem;">
+            <img src="./public/images/png/luffy.jpg" class="card-img-top rounded-top-4" alt="...">
+            <div class="card-body text-center">
+              <h5 class="card-title fw-bold">Bagus Arya</h5>
+              <p class="card-text">Fullstack Developer</p>
+            </div>
+        </div>
+      </section>
+
+
+      <section class="container-fluid project p-4">
+        <div class="text-center py-3 mb-3">
+          <h1 class="fw-bolder">My project</h1>
+        </div>
+        {{if .DataSession.IsLogin}}
+        <div class="my-4 text-end me-lg-5">
+          <a class="bg-btn px-3 py-2 text-decoration-none text-white rounded-3"
+            href="/form-add-project">Add Project
+          </a>
+        </div>
+        {{end}}
+          <div class="row px-lg-5">
+            {{range $index, $data := .Projects}}
+            <div class="col-lg-4 col-md-6 col-sm-12" id="my-project">
+              <div class="card mb-5 shadow-sm p-3 rounded-3" >
+                <img src="/uploads/{{$data.Image}}" class="img-fluid rounded-3 object-fit-cover" alt="">
+                <div class="card-body">
+                  <a href="/project-detail/{{$data.Id}}" class="card-title text-decoration-none name-project">
+                    <h5 class="fw-bold">{{$data.NameProject}}</h5>
+                  </a>
+                  <div class="duration-project">Duration : {{$data.Duration}}</div>
+                  <div class="post-time-project">{{$data.FormatStartDate}} - {{$data.FormatEndDate}} | {{$data.Author}} </div>
+                  <div class="card-text mt-3">
+                    <p>{{$data.Description}}</p> 
+                  </div>
+                  <div class="fw-bold fs-3 mb-2">
+                    {{if $data.Html}}
+                    <i class="fa-brands fa-html5"></i>
+                    {{end}}
+                    {{if $data.Css}}
+                    <i class="fa-brands fa-css3-alt"></i>
+                    {{end}}
+                    {{if $data.ReactJs}}
+                    <i class="fa-brands fa-react"></i>
+                    {{end}}
+                    {{if $data.JavaScript}}
+                    <i class="fa-brands fa-js"></i>
+                    {{end}}
+                  </div>
+                  
+                  {{if $.DataSession.IsLogin}}
+                  <div class="button-project d-flex gap-2">
+                    <a href="/update-project/{{$data.Id}}" method="GET" class="btn bg-btn rounded-4 text-white px-3 w-100">Edit</a>
+                    <form action="/delete-project/{{$data.Id}}" method="POST" class="w-100">
+                      <input 
+                        type="submit"
+                        value="Delete"
+                        class="btn bg-btn rounded-4 text-white px-3 w-100"
+                      >
+                    </form>
+                  </div>
+                  {{end}}
+                </div>
+              </div>
+            </div>
+            {{end}}
+          </div>
+      </section>
+    
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+</body>
+</html>

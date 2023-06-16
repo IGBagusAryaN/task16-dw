@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact</title>
+    <link rel="stylesheet" href="/public/css/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+</head>
+<body style="background-color: #E2E6EA;">
+    <nav class="navbar navbar-expand-lg bg-light">
+        <div class="container">
+          <a class="navbar-brand" href="#">
+            <img src="public/images/png/logo.png" width="40"/>
+          </a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarTogglerDemo02"
+            aria-control="navbarTogglerDemo02"
+            aria-expanded="false"
+            aria-label="Toggle Navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+            <ul class="navbar-nav ms-4 me-auto mb-2 mb-lg-0">
+              <li class="nav-item text-center">
+                <a class="nav-link " aria-current="page" href="/">Home</a>
+              </li>
+              <li class="nav-item text-center">
+                <a class="nav-link "aria-current="page" href="testimonial">Testimonial</a>
+              </li>
+            </ul>
+            <div class="text-center ms-4">
+              <a href="contact" class="btn bg-btn text-white px-3 btn-active">Contact Me</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+
+      <div class="container-fluid d-flex justify-content-center align-item-center">
+        <div class="container-form mt-5">
+            <form action="">
+                <h2 class="mb-4 text-center fw-bold">GET IN TOUCH</h2>
+                <div class="mb-3 ">
+                    <label for="input-name" class="form-label fw-bold">Name</label>
+                    <input id="input-name"type="text" placeholder="Your name..."  class="form-control" required>
+                </div>
+                <div class="mb-3 ">
+                    <label for="input-email" class="form-label fw-bold">Email</label>
+                    <input id="input-email"type="email" placeholder="example : email@gmail.com"   class="form-control"required>
+                </div>
+                <div class="mb-3 ">
+                  <label for="input-phone" class="form-label fw-bold">Phone Number</label>
+                  <input id="input-phone"type="number" placeholder="+6281xxxxxx"  class="form-control" required>
+                </div>
+                <div class="mb-3 ">
+                  <label for="input-subject" class="form-label fw-bold">Subject</label>
+                  <select class="form-select" aria-label="Default select example" id="input-subject">
+                    <option value="" hidden selected>Select your Skill</option>
+                    <option value="FrontEnd Developer">FrontEnd Developer</option>
+                    <option value="BackEnd Developer">BackEnd Developer</option>
+                    <option value="Fullstack Developer">Fullstack Developer</option>
+                  </select>
+                </div>
+                <div class="mb-3 ">
+                  <label for="input-message" class="form-label fw-bold">Your message</label>
+                  <textarea class="form-control" id="input-message" cols="30" rows="5" placeholder="Put your Message..."></textarea>
+                </div>
+                <div class="d-grip gap-2 d-md-flex justify-content-md-end mb-5">
+                  <button type="button" class="btn text-white bg-btn " onclick="submitData()">
+                    Submit
+                  </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="/public/js/contact.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+</body>
+</html>
