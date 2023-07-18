@@ -82,7 +82,6 @@ func main() {
 }
 
 func home(c echo.Context) error {
-
 	data, _ := connection.Conn.Query(context.Background(), "SELECT tb_project.id, tb_project.name, start_date, end_date, description, html, css, reactjs, javascript, image, tb_user.name AS author FROM tb_project JOIN tb_user ON tb_project.author_id = tb_user.id")
 
 	var result []Project
